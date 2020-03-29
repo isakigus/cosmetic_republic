@@ -1,0 +1,38 @@
+version: '3'
+services:
+#   db:
+#     image: postgres:latest
+#     ports:
+#       - "5432:5432"
+  frontend:
+    build:
+        context: ../frontend
+        dockerfile: Dockerfile
+    volumes:
+        - "../frontend:/app"
+    ports:
+        - "4200:4200"
+#   frontend_docs:
+#     build:
+#       context: ./frontend
+#       dockerfile: Dockerfile_docs
+#     working_dir: /frontend
+#     volumes:
+#         - ./frontend:/frontend
+#     ports:
+#         - "3000:3000"
+#   celery:
+#     build: ./backend
+#     command: ./bin/run_celery.sh
+#     volumes:
+#        - "./backend:/app"
+#     links:
+#       - db
+#       - redis
+#     depends_on:
+#       - redis
+
+#   redis:
+#     image: redis:3.2
+#     ports:
+#         - "6379:6379"
