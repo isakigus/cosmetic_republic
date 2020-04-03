@@ -3,9 +3,12 @@ import basic_setup as bs
 
 def main():
     try:
-        r = bs.execute("docker-compose -f docker/docker-compose-local.yml up")
-        print(r.std_out)
-        print(r.std_err)
+        response = bs.execute(
+            "docker-compose -f docker/docker-compose-local.yml up")
+        print(response.std_out)
+        if response.std_err:
+            print('errors:')
+            print(response.std_err)
     except KeyboardInterrupt:
         pass
 
