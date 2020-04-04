@@ -1,9 +1,13 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
     Welcome to {{title}}!
   </h1>
 
-  here must be the searh component
+  <nav>
+    <a routerLink="/search" routerLinkActive="active">Buscador</a>
+    <a routerLink="/" routerLinkActive="active">Datos</a>
+  </nav>
+
+  <router-outlet></router-outlet>
 
 </div>
