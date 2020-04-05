@@ -1,13 +1,10 @@
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
+<mat-toolbar color="primary">
+  <h1>Welcome to {{title}}!</h1>
+</mat-toolbar>
 
-  <nav>
-    <a routerLink="/search" routerLinkActive="active">Buscador</a>
-    <a routerLink="/" routerLinkActive="active">Datos</a>
-  </nav>
+<nav>
+  <a routerLink="/search" routerLinkActive="active">Buscador</a>
+  <a routerLink="/data" routerLinkActive="active">Datos</a>
+</nav>
 
-  <router-outlet></router-outlet>
-
-</div>
+<router-outlet></router-outlet>

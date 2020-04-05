@@ -1,0 +1,28 @@
+$primary-color: green;
+$lighten-primary-color: lighten($primary-color, 10%);
+
+nav {
+  background-color: $primary-color;
+  padding: 10px;
+  display: block;
+
+  a {
+    padding: 10px;
+    text-decoration: none;
+    background-color: $lighten-primary-color;
+    margin: 1px;
+
+    &:hover {
+      background-color: lighten($lighten-primary-color, 10%);
+    }
+
+    &:click {
+      background-color: yellow;
+    }
+  }
+
+  .active {
+    background-color: lighten($lighten-primary-color, 40%);
+  }
+
+}
