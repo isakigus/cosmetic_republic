@@ -1,0 +1,28 @@
+
+
+@mixin placeholder {
+    &::-webkit-input-placeholder {@content}
+    &:-moz-placeholder           {@content}
+    &::-moz-placeholder          {@content}
+    &:-ms-input-placeholder      {@content}
+}
+
+input[type="text"] {
+    padding:10px;
+    margin:10px;
+    width:40%;
+    border-radius: 25px;
+    outline:none;
+    @include placeholder {
+        font-family: "Baskerville";
+        color: red;
+        font-size: 1.2em;
+    }
+}
+
+
+p.searching {
+    font-family: "Baskerville";
+    color: blue;
+    font-size: 1.2em;
+}
