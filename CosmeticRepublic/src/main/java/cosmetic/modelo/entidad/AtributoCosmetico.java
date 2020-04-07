@@ -9,14 +9,12 @@ import javax.persistence.Table;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-
-
 @Entity
 @Table(name = "atributoCosmetico")
 @Component
 @Scope("prototype")
 public class AtributoCosmetico {
-//PropiedadCosmetica, CategoriaCosmetica, CategoriaIngrediente, Tienda
+	// PropiedadCosmetica, CategoriaCosmetica, CategoriaIngrediente, Tienda
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -73,8 +71,6 @@ public class AtributoCosmetico {
 	public void setCategoriaCosmetica(CategoriaCosmetica categoriaCosmetica) {
 		this.categoriaCosmetica = categoriaCosmetica;
 	}
-
-	
 
 	public CategoriaIngrediente getCategoriaIngrediente() {
 		return categoriaIngrediente;

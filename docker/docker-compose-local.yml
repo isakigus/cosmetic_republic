@@ -1,5 +1,27 @@
 version: "3"
 services:
+    db:
+        image: mysql:latest
+        volumes:
+            - "../data/mysql:/var/lib/mysql"
+        # restart: always
+        ports:
+            - 3306:3306
+        environment:
+            MYSQL_ROOT_PASSWORD: cosmeticroot1957cosmeticroot1953
+            MYSQL_DATABASE: cosmetic_republic
+            MYSQL_USER: karite
+            MYSQL_PASSWORD: cosmeticroot1957
+
+    backend:
+        build:
+            context: ../CosmeticRepublic
+            dockerfile: Dockerfile
+        ports:
+            - "8080:8080"
+        depends_on:
+            - db
+
     frontend:
         build:
             context: ../frontend
