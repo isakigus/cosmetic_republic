@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="cosmetic.modelo.entidad.ElementoCosmetico"/>
 <fullyQualifiedTypeName name="cosmetic.modelo.entidad.AtributoCosmetico.categoriaAtributo"/>
 <fullyQualifiedTypeName name="cosmetic.modelo.entidad.AtributoCosmetico.categoriaIngrediente"/>
 <fullyQualifiedTypeName name="com.sun.istack.Nullable"/>
@@ -13,23 +12,36 @@
 <fullyQualifiedTypeName name="org.springframework.context.annotation.Scope"/>
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="cosmetic.modelo.entidad.Ingrediente.categoriaIngrediente"/>
-<fullyQualifiedTypeName name="cosmetic.modelo.entidad.Producto"/>
 <fullyQualifiedTypeName name="cosmetic.modelo.entidad.CategoriaAtributo"/>
 <fullyQualifiedTypeName name="cosmetic.modelo.entidad.AtributoCosmetico"/>
 <fullyQualifiedTypeName name="cosmetic.modelo.entidad.PropiedadCosmetica"/>
 <fullyQualifiedTypeName name="cosmetic.modelo.entidad.CategoriaCosmetica"/>
 <fullyQualifiedTypeName name="cosmetic.modelo.entidad.Tienda"/>
-<fullyQualifiedTypeName name="cosmetic.modelo.entidad.EtiquetaProducto"/>
 <fullyQualifiedTypeName name="cosmetic.modelo.entidad.Imagen"/>
 <fullyQualifiedTypeName name="javax.sql.rowset.serial.SerialBlob"/>
 <fullyQualifiedTypeName name="java.sql.Blob"/>
-<fullyQualifiedTypeName name="cosmetic.modelo.entidad.ImagenProducto"/>
 <fullyQualifiedTypeName name="cosmetic.modelo.entidad.Ingrediente"/>
 <fullyQualifiedTypeName name="cosmetic.modelo.entidad.CategoriaIngrediente"/>
 <fullyQualifiedTypeName name="cosmetic.modelo.entidad.IngredienteReceta"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="cosmetic.modelo.entidad.Receta"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="javax.persistence.Entity"/>
 <fullyQualifiedTypeName name="javax.persistence.Table"/>
+<fullyQualifiedTypeName name="org.hibernate.annotations.ManyToAny"/>
+<fullyQualifiedTypeName name="javax.persistence.ManyToMany"/>
+<fullyQualifiedTypeName name="curso.modelo.entidad.Enum"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="curso.modelo.entidad.Operacion"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="curso.modelo.entidad.PruebaPersistenciaList"/>
+<fullyQualifiedTypeName name="curso.modelo.entidad.PruebaPersistenciaEnum"/>
+<fullyQualifiedTypeName name="javax.persistence.Enumerated"/>
+<fullyQualifiedTypeName name="javax.persistence.EnumType"/>
+<fullyQualifiedTypeName name="cosmetic.modelo.entidad.ImagenProducto"/>
+<fullyQualifiedTypeName name="cosmetic.modelo.entidad.EtiquetaProducto"/>
+<fullyQualifiedTypeName name="cosmetic.modelo.entidad.Producto"/>
+<fullyQualifiedTypeName name="javax.persistence.OneToMany"/>
+<fullyQualifiedTypeName name="cosmetic.modelo.entidad.ElementoCosmetico"/>
+<fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
+<fullyQualifiedTypeName name="javax.persistence.Column"/>
+<fullyQualifiedTypeName name="javax.persistence.OneToOne"/>
 </qualifiedTypeNameHistroy>

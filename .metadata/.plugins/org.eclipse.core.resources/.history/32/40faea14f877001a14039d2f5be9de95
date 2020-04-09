@@ -1,7 +1,0 @@
-package cosmetic.test;
-
-public enum categoriaAtributo {
-	
-	Aceite, Alcali, Colorante, PrincipioAtivo, Aroma, AceiteEsencial, Sinergia, Producto
-
-}

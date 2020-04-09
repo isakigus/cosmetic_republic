@@ -1,7 +1,0 @@
-package cosmetic.test;
-
-public enum categoriaAtributo {
-	
-	PropiedadCosmetica, CategoriaCosmetica, CategoriaIngrediente, Tienda
-
-}

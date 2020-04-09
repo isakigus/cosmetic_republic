@@ -1,7 +1,0 @@
-package cosmetic.modelo.entidad;
-
-public enum PropiedadCosmetica {
-	
-	CategoriaAtributo 
-
-}
