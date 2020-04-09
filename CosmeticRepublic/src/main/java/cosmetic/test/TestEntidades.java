@@ -71,7 +71,7 @@ public class TestEntidades {
 		producto.setAtributoCosmetico(propiedadesCosmeticas);
 		producto.setCategoriaCosmetica(categoriaCosmetica);
 		producto.setComentario("Soy un producto maravilloso");
-		producto.setEtiquetas(etiquetaEimagenes);
+		//producto.setEtiquetas(etiquetaEimagenes);
 		System.out.println("Prueba producto: \n" + producto.getId() + " " + producto.getNombre() + " " + producto.getAtributoCosmetico() + producto.getCategoriaCosmetica()
 		+ producto.getComentario() + producto.getEtiquetas() + producto.getImagenes() + producto.getRecetas());
 
@@ -92,7 +92,7 @@ public class TestEntidades {
 		ingrediente.setId(1);
 		ingrediente.setNombre("Aceite de coco");
 		ingrediente.setComentario("Comentario del ingrediente");
-		ingrediente.setCategoriaIngredinte(CategoriaIngrediente.AceiteEsencial);
+		ingrediente.setCategoriaIngrediente(CategoriaIngrediente.AceiteEsencial);
 		ingrediente.setAtributoCosmetico(propiedadesCosmeticas);
 		ingrediente.setProducto(producto);
 		System.out.println("Prueba Ingrediente: " + ingrediente);

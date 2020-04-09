@@ -1,0 +1,13 @@
+package prueba.PruebaPersistencia;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class CosmeticRepublicApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(PruebaPersistencaApplication.class, args);
+	}
+
+}

@@ -1,6 +1,7 @@
 package cosmetic.modelo.entidad;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.context.annotation.Scope;
@@ -11,5 +12,8 @@ import org.springframework.stereotype.Component;
 @Component
 @Scope("prototype")
 public class ImagenProducto extends Imagen {
+	
+	@ManyToOne
+	private Producto imagenProducto;
 
 }

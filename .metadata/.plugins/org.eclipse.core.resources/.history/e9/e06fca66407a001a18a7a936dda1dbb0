@@ -1,0 +1,34 @@
+package curso.modelo.entidad;
+
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+
+
+@Entity
+@Table(name = "persistenciaListYEnum")
+@Component
+@Scope("prototype")
+public class PruebaPersistenciaList {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	int id;
+	//one hace referencia a la entidad que contiene List y Many a la List.
+	@OneToMany
+	private List<Operacion> operaciones;
+	@Enumerated(EnumType.STRING)
+	private PruebaPersistenciaEnum enumeracion;
+
+}

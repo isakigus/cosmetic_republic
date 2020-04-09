@@ -1,0 +1,38 @@
+package cosmetic.test;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import cosmetic.modelo.entidad.AtributoCosmetico;
+import cosmetic.modelo.entidad.CategoriaAtributo;
+import cosmetic.modelo.entidad.EtiquetaProducto;
+import cosmetic.modelo.entidad.Producto;
+import cosmetic.modelo.entidad.PropiedadCosmetica;
+
+public class TestEntidades {
+
+	public static void main(String[] args) {
+
+		AtributoCosmetico atributoCosmetico = new AtributoCosmetico();
+
+		atributoCosmetico.setNombre("Atributo cosmetico de prueba");
+		atributoCosmetico.setId(1);
+		atributoCosmetico.setCategoriaAtributoCosmetico(CategoriaAtributo.Tienda);
+
+		System.out.println(atributoCosmetico);
+		
+		Producto producto = new Producto();
+		List<AtributoCosmetico>propiedadesCosmeticas = new ArrayList<AtributoCosmetico>();
+		producto.setAtributoCosmetico(PropiedadCosmetica.antiespasmodico);
+		
+		EtiquetaProducto etiqueta = new EtiquetaProducto();
+		
+		etiqueta.setId(1);
+		etiqueta.setImagen(imagen);
+		etiqueta.setProducto(producto);
+		
+		System.out.println(etiqueta);
+		
+	}
+
+}

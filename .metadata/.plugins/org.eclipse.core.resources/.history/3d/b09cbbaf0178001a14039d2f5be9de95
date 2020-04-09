@@ -1,0 +1,21 @@
+package cosmetic.test;
+
+import cosmetic.modelo.entidad.AtributoCosmetico;
+import cosmetic.modelo.entidad.CategoriaAtributo;
+
+public class TestEntidades {
+
+	public static void main(String[] args) {
+
+		AtributoCosmetico atributoCosmetico = new AtributoCosmetico();
+
+		atributoCosmetico.setNombre("Atributo cosmetico de prueba");
+		atributoCosmetico.setId(1);
+		atributoCosmetico.setCategoriaAtributoCosmetico(CategoriaAtributo.Tienda);
+
+		System.out.println(atributoCosmetico);
+		
+		
+	}
+
+}

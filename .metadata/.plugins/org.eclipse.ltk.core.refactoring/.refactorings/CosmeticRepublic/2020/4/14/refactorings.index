@@ -1,0 +1,5 @@
+1585851914752	Rename package 'cosmetic.CosmeticRepublic'
+1585909066316	Delete element
+1585911358088	Encapsulate field 'categoriaAtributoCosmetico'
+1585911366301	Encapsulate field 'categoriaIngrediente'
+1585916144831	Rename type 'IngredinteReceta'

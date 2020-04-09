@@ -1,0 +1,6 @@
+package cosmetic.modelo.entidad;
+
+public enum CategoriaCosmetica {
+
+	jabon, jabonGlicerina, gelJabon, champu, champuSolido, crema, cremaSolida, gelBaño, bombaBaño, salBaño, unguento, mantecaBatida, gel
+}

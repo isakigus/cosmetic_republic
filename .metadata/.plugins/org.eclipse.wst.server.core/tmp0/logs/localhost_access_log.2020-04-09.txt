@@ -1,0 +1,4 @@
+127.0.0.1 - - [09/Apr/2020:12:06:32 +0100] "GET / HTTP/1.1" 404 637
+0:0:0:0:0:0:0:1 - - [09/Apr/2020:12:06:33 +0100] "GET /CosmeticRepublic/WEB-INF/classes/cosmetic/cosmeticRepublic/CosmeticRepublicApplication.java HTTP/1.1" 404 610
+0:0:0:0:0:0:0:1 - - [09/Apr/2020:12:08:36 +0100] "GET / HTTP/1.1" 404 637
+0:0:0:0:0:0:0:1 - - [09/Apr/2020:12:08:36 +0100] "GET /favicon.ico HTTP/1.1" 404 648

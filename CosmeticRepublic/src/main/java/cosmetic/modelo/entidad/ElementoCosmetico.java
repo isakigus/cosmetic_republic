@@ -2,24 +2,16 @@ package cosmetic.modelo.entidad;
 
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
-import org.springframework.stereotype.Component;
-
-@Entity
-@Table(name = "elementoCosmetico")
-@Component
 public abstract class ElementoCosmetico {
 
 	private String nombre;
-	private List<AtributoCosmetico> atributoCosmetico;
+	// @OneToMany(mappedBy = "atributoCosmetico")
+	private List<AtributoCosmetico> atributoCosmetico;// OneToMany
 	private String comentario;
 
 	@Override
 	public String toString() {
-		return "Nnombre: " + nombre + ", atributoCosmetico: \n" + atributoCosmetico
-				+ ", comentario: " + comentario;
+		return "Nnombre: " + nombre + ", atributoCosmetico: \n" + atributoCosmetico + ", comentario: " + comentario;
 	}
 
 	public String getNombre() {
@@ -45,11 +37,5 @@ public abstract class ElementoCosmetico {
 	public void setComentario(String comentario) {
 		this.comentario = comentario;
 	}
-	
-	
-
-	
-
-	
 
 }

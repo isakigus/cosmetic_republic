@@ -1,6 +1,8 @@
 package cosmetic.modelo.entidad;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -8,8 +10,6 @@ import javax.persistence.Table;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-
-
 
 @Entity
 @Table(name = "atributoCosmetico")
@@ -21,11 +21,19 @@ public class AtributoCosmetico {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String nombre;
+	@Enumerated(EnumType.STRING)
 	private CategoriaAtributo categoriaAtributoCosmetico;
+	@Enumerated(EnumType.STRING)
 	private PropiedadCosmetica propiedadCosmetica;
+	@Enumerated(EnumType.STRING)
 	private CategoriaCosmetica categoriaCosmetica;
+	@Enumerated(EnumType.STRING)
 	private CategoriaIngrediente categoriaIngrediente;
+	@Enumerated(EnumType.STRING)
 	private Tienda tienda;
+	/*
+	 * @ManyToOne private ElementoCosmetico atributoCosmetico;
+	 */
 
 	@Override
 	public String toString() {
@@ -74,8 +82,6 @@ public class AtributoCosmetico {
 		this.categoriaCosmetica = categoriaCosmetica;
 	}
 
-	
-
 	public CategoriaIngrediente getCategoriaIngrediente() {
 		return categoriaIngrediente;
 	}
@@ -91,5 +97,10 @@ public class AtributoCosmetico {
 	public void setTienda(Tienda tienda) {
 		this.tienda = tienda;
 	}
-
+	/*
+	 * public ElementoCosmetico getAtributoCosmetico() { return atributoCosmetico; }
+	 * 
+	 * public void setAtributoCosmetico(ElementoCosmetico atributoCosmetico) {
+	 * this.atributoCosmetico = atributoCosmetico; }
+	 */
 }

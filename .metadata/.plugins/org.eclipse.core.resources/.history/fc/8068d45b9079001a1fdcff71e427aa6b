@@ -1,0 +1,65 @@
+package cosmetic.modelo.entidad;
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+@Entity
+@Table(name = "precio")
+@Component
+@Scope("prototype")
+public class Precio {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	private Ingrediente ingrediente;
+	private AtributoCosmetico tienda;
+	private Date fechaCreacion;
+
+	@Override
+	public String toString() {
+		return "Precio [id=" + id + ", ingrediente=" + ingrediente + ", tienda=" + tienda + ", fechaCreacion="
+				+ fechaCreacion + "]";
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Ingrediente getIngrediente() {
+		return ingrediente;
+	}
+
+	public void setIngrediente(Ingrediente ingrediente) {
+		this.ingrediente = ingrediente;
+	}
+
+	public AtributoCosmetico getTienda() {
+		return tienda;
+	}
+
+	public void setTienda(AtributoCosmetico tienda) {
+		this.tienda = tienda;
+	}
+
+	public Date getFechaCreacion() {
+		return fechaCreacion;
+	}
+
+	public void setFechaCreacion(Date fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
+
+}

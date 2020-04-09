@@ -1,9 +1,12 @@
 package cosmetic.modelo.entidad;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.context.annotation.Scope;
@@ -16,22 +19,21 @@ import com.sun.istack.Nullable;
 @Component
 @Scope("prototype")
 public class Ingrediente extends ElementoCosmetico {
-	
-		
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	@Enumerated(EnumType.STRING)
 	private CategoriaIngrediente categoriaIngrediente;
 	@Nullable
 	private Producto producto;
-	
-
-	
+	@ManyToOne
+	private Receta ingrediente;
 
 	@Override
 	public String toString() {
-		return "Ingrediente id: " + id + ", CategoriaIngrediente: " + categoriaIngrediente + ", producto: \n" + producto;
-		
+		return "Ingrediente [id=" + id + ", categoriaIngrediente=" + categoriaIngrediente + ", producto=" + producto
+				+ ", ingrediente=" + ingrediente + "]";
 	}
 
 	public int getId() {
@@ -42,11 +44,14 @@ public class Ingrediente extends ElementoCosmetico {
 		this.id = id;
 	}
 
-	public AtributoCosmetico getCategoriaIngrediente() {
-		return getCategoriaIngrediente();
+	public CategoriaIngrediente getCategoriaIngrediente() {
+		return categoriaIngrediente;
 	}
 
-	
+	public void setCategoriaIngrediente(CategoriaIngrediente categoriaIngrediente) {
+		this.categoriaIngrediente = categoriaIngrediente;
+	}
+
 	public Producto getProducto() {
 		return producto;
 	}
@@ -55,15 +60,12 @@ public class Ingrediente extends ElementoCosmetico {
 		this.producto = producto;
 	}
 
-	public CategoriaIngrediente getCategoriaIngredinte() {
-		return categoriaIngrediente;
+	public Receta getIngrediente() {
+		return ingrediente;
 	}
 
-	public void setCategoriaIngredinte(CategoriaIngrediente categoriaIngredinte) {
-		this.categoriaIngrediente = categoriaIngredinte;
+	public void setIngrediente(Receta ingrediente) {
+		this.ingrediente = ingrediente;
 	}
 
-	
-
-	
 }

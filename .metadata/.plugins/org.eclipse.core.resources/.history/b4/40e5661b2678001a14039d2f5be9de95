@@ -1,0 +1,13 @@
+package cosmetic.test;
+
+import cosmetic.modelo.entidad.PropiedadCosmetica;
+
+public class TestPropiedadCosmetica {
+
+	public static void main(String[] args) {
+		
+
+
+	}
+
+}

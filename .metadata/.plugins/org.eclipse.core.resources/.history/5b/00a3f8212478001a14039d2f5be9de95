@@ -1,0 +1,10 @@
+package cosmetic.modelo.entidad;
+
+public enum PropiedadCosmetica {
+	
+	
+	antiseptico, emoliente, hidratante, epumoso, antiespasmodico	
+	
+	
+
+}

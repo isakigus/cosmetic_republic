@@ -1,0 +1,5 @@
+package cosmetic.modelo.entidad;
+
+public class Ingrediente {
+
+}

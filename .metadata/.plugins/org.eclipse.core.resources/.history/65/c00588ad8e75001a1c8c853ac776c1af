@@ -1,0 +1,8 @@
+package cosmetic.modelo.entidad;
+
+public abstract class ElementoCosmetico {
+	
+	nombre:String
+	
+
+}
