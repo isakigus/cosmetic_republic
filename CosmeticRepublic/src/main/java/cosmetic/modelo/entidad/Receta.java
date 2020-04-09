@@ -13,6 +13,8 @@ import javax.persistence.Table;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import cosmetic.modelo.entidad.Producto;
+
 @Entity
 @Table(name = "receta")
 @Component
@@ -22,11 +24,11 @@ public class Receta {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private Producto producto;
 	@ManyToOne
-	private Producto receta;
-	@OneToMany(mappedBy = "ingrediente")
-	private List<Ingrediente> ingredientes;// one to many
+	private Producto producto;
+
+	@OneToMany(targetEntity = Ingrediente.class, mappedBy = "receta")
+	private List<Ingrediente> ingredientes;
 
 	@Override
 	public String toString() {

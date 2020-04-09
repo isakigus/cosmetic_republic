@@ -28,12 +28,12 @@ public class Ingrediente extends ElementoCosmetico {
 	@Nullable
 	private Producto producto;
 	@ManyToOne
-	private Receta ingrediente;
+	private Receta receta;
 
 	@Override
 	public String toString() {
 		return "Ingrediente [id=" + id + ", categoriaIngrediente=" + categoriaIngrediente + ", producto=" + producto
-				+ ", ingrediente=" + ingrediente + "]";
+				+ ", receta=" + receta + "]";
 	}
 
 	public int getId() {
@@ -61,11 +61,11 @@ public class Ingrediente extends ElementoCosmetico {
 	}
 
 	public Receta getIngrediente() {
-		return ingrediente;
+		return receta;
 	}
 
 	public void setIngrediente(Receta ingrediente) {
-		this.ingrediente = ingrediente;
+		this.receta = ingrediente;
 	}
 
 }

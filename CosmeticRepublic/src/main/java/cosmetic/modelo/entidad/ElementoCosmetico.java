@@ -2,10 +2,14 @@ package cosmetic.modelo.entidad;
 
 import java.util.List;
 
+
+import javax.persistence.OneToMany;
+
+
 public abstract class ElementoCosmetico {
 
 	private String nombre;
-	// @OneToMany(mappedBy = "atributoCosmetico")
+	@OneToMany(targetEntity = AtributoCosmetico.class, mappedBy = "atributoCosmetico")	
 	private List<AtributoCosmetico> atributoCosmetico;// OneToMany
 	private String comentario;
 
