@@ -1,5 +1,0 @@
-package curso.modelo.entidad;
-
-public enum Enum {
-Suma, Resta, Multiplicacion, Division
-}

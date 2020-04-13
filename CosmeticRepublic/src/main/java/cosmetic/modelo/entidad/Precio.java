@@ -27,12 +27,12 @@ public class Precio {
 	private Ingrediente ingrediente;
 	@OneToOne
 	private AtributoCosmetico tienda;
-	private Date fechaCreacion;
+	private Date fechaCompra;
 
 	@Override
 	public String toString() {
-		return "Precio [id=" + id + ", ingrediente=" + ingrediente + ", tienda=" + tienda + ", fechaCreacion="
-				+ fechaCreacion + "]";
+		return "Precio [id=" + id + ", ingrediente=" + ingrediente + ", tienda=" + tienda + ", fechaCompra="
+				+ fechaCompra + "]";
 	}
 
 	public int getId() {
@@ -60,11 +60,11 @@ public class Precio {
 	}
 
 	public Date getFechaCreacion() {
-		return fechaCreacion;
+		return fechaCompra;
 	}
 
 	public void setFechaCreacion(Date fechaCreacion) {
-		this.fechaCreacion = fechaCreacion;
+		this.fechaCompra = fechaCreacion;
 	}
 
 }

@@ -1,6 +1,8 @@
 package cosmetic.modelo.entidad;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,15 +22,18 @@ public class AtributoCosmetico {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String nombre;
+	@Enumerated(EnumType.STRING)
 	private CategoriaAtributo categoriaAtributo;
-	// Referenciar al resto de enum desde negocio
+	// Referenciar al resto de enum desde negocio, podria ser con un switch,
+	//cada case seria lo devuelto por categoriaAtributo haciendo referencia 
+	//a cada uno de los enum
 	@ManyToOne
-	private ElementoCosmetico atributoCosmetico;
+	private ElementoCosmetico elementoCosmetico;
 
 	@Override
 	public String toString() {
 		return "AtributoCosmetico [id=" + id + ", nombre=" + nombre + ", categoriaAtributo=" + categoriaAtributo
-				+ ", atributoCosmetico=" + atributoCosmetico + "]";
+				+ ", atributoCosmetico=" + elementoCosmetico + "]";
 	}
 
 	public int getId() {
@@ -56,11 +61,11 @@ public class AtributoCosmetico {
 	}
 
 	public ElementoCosmetico getAtributoCosmetico() {
-		return atributoCosmetico;
+		return elementoCosmetico;
 	}
 
 	public void setAtributoCosmetico(ElementoCosmetico atributoCosmetico) {
-		this.atributoCosmetico = atributoCosmetico;
+		this.elementoCosmetico = atributoCosmetico;
 	}
 
 }

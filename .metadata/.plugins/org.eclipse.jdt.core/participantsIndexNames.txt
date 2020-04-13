@@ -1,3 +1,0 @@
-INDEX VERSION 1.131
-C:\Users\javie\Desktop\CosmeticRepublic\cosmetic_republic\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2298820820.index
-\59_SpringBootWebCalculadora\src\main\java

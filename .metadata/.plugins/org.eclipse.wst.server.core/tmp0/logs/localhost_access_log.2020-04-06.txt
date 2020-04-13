@@ -1,8 +1,0 @@
-127.0.0.1 - - [06/Apr/2020:10:44:38 +0100] "GET / HTTP/1.1" 404 637
-0:0:0:0:0:0:0:1 - - [06/Apr/2020:10:44:39 +0100] "GET /CosmeticRepublic/WEB-INF/classes/cosmetic/cosmeticRepublic/CosmeticRepublicApplication.java HTTP/1.1" 404 610
-0:0:0:0:0:0:0:1 - - [06/Apr/2020:10:44:56 +0100] "GET / HTTP/1.1" 404 637
-127.0.0.1 - - [06/Apr/2020:11:28:47 +0100] "GET / HTTP/1.1" 404 637
-0:0:0:0:0:0:0:1 - - [06/Apr/2020:11:28:48 +0100] "GET /CosmeticRepublic/WEB-INF/classes/cosmetic/cosmeticRepublic/CosmeticRepublicApplication.java HTTP/1.1" 404 610
-0:0:0:0:0:0:0:1 - - [06/Apr/2020:11:31:21 +0100] "GET / HTTP/1.1" 404 637
-127.0.0.1 - - [06/Apr/2020:11:49:08 +0100] "GET / HTTP/1.1" 404 637
-0:0:0:0:0:0:0:1 - - [06/Apr/2020:11:49:09 +0100] "GET /CosmeticRepublic/WEB-INF/classes/cosmetic/cosmeticRepublic/CosmeticRepublicApplication.java HTTP/1.1" 404 610

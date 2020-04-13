@@ -1,2 +1,0 @@
-INDEX VERSION 1.4+C:\Users\javie\Desktop\CosmeticRepublic\cosmetic_republic\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-719076696.index

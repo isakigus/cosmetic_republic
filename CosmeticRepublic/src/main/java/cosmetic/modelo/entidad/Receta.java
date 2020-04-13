@@ -26,9 +26,8 @@ public class Receta {
 	private int id;
 	@ManyToOne
 	private Producto producto;
-
-	@OneToMany(targetEntity = Ingrediente.class, mappedBy = "receta")
-	private List<Ingrediente> ingredientes;
+	@OneToMany(targetEntity = IngredienteReceta.class, mappedBy = "receta")
+	private List<IngredienteReceta> ingredientes;
 
 	@Override
 	public String toString() {
@@ -51,12 +50,14 @@ public class Receta {
 		this.producto = producto;
 	}
 
-	public List<Ingrediente> getIngredientes() {
+	public List<IngredienteReceta> getIngredientes() {
 		return ingredientes;
 	}
 
-	public void setIngredientes(List<Ingrediente> ingredientes) {
+	public void setIngredientes(List<IngredienteReceta> ingredientes) {
 		this.ingredientes = ingredientes;
 	}
+
+	
 
 }
