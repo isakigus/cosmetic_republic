@@ -3,57 +3,41 @@ package cosmetic.modelo.entidad;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+import cosmetic.modelo.entidad.Receta;
+import cosmetic.modelo.entidad.AtributoCosmetico;
 
 @Entity
-@Table(name = "elementoCosmetico")
+@Table(name = "producto")
 @Component
 @Scope("prototype")
 public class Producto extends ElementoCosmetico {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	private List<Imagen> imagenes;
-	private List<Imagen> etiquetas;
+	
+	@OneToOne
 	private AtributoCosmetico categoriaCosmetica;
+	@OneToMany(targetEntity = Imagen.class, mappedBy = "producto")
+	private List<Imagen> ficherosDeImagen;
+	@OneToMany(targetEntity = Receta.class, mappedBy = "producto")
 	private List<Receta> recetas;
 
 	@Override
 	public String toString() {
-		return "Producto Id: " + id + ", imagenes: " + imagenes + ", categoriaCosmetica: "
-				+ categoriaCosmetica + ", etiquetas: " + etiquetas + ", recetas: " + recetas;
+		return "Producto [id=" + id + ", ficherosDeImagen=" + ficherosDeImagen + ", categoriaCosmetica=" + categoriaCosmetica
+				+ ", recetas=" + recetas + "]";
 	}
 
-	
 	public int getId() {
 		return id;
 	}
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public List<Imagen> getImagenes() {
-		return imagenes;
-	}
-
-	public void setImagenes(List<Imagen> imagenes) {
-		this.imagenes = imagenes;
-	}
-
-	public List<Imagen> getEtiquetas() {
-		return etiquetas;
-	}
-
-	public void setEtiquetas(List<Imagen> etiquetas) {
-		this.etiquetas = etiquetas;
 	}
 
 	public AtributoCosmetico getCategoriaCosmetica() {

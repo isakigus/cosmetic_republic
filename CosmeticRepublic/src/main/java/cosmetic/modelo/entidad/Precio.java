@@ -6,10 +6,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+
+import cosmetic.modelo.entidad.Ingrediente;
 
 @Entity
 @Table(name = "precio")
@@ -20,14 +23,16 @@ public class Precio {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	@OneToOne
 	private Ingrediente ingrediente;
+	@OneToOne
 	private AtributoCosmetico tienda;
-	private Date fechaCreacion;
+	private Date fechaCompra;
 
 	@Override
 	public String toString() {
-		return "Precio [id=" + id + ", ingrediente=" + ingrediente + ", tienda=" + tienda + ", fechaCreacion="
-				+ fechaCreacion + "]";
+		return "Precio [id=" + id + ", ingrediente=" + ingrediente + ", tienda=" + tienda + ", fechaCompra="
+				+ fechaCompra + "]";
 	}
 
 	public int getId() {
@@ -55,11 +60,11 @@ public class Precio {
 	}
 
 	public Date getFechaCreacion() {
-		return fechaCreacion;
+		return fechaCompra;
 	}
 
 	public void setFechaCreacion(Date fechaCreacion) {
-		this.fechaCreacion = fechaCreacion;
+		this.fechaCompra = fechaCreacion;
 	}
 
 }

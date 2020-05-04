@@ -7,5 +7,6 @@ public enum CategoriaAtributo {
 	PropiedadCosmetica, CategoriaCosmetica, CategoriaIngrediente, Tienda
 	
 	
+	
 
 }

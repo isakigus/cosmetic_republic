@@ -1,9 +1,7 @@
 package cosmetic.modelo.entidad;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.context.annotation.Scope;
@@ -11,27 +9,22 @@ import org.springframework.stereotype.Component;
 
 import com.sun.istack.Nullable;
 
+import cosmetic.modelo.entidad.Producto;
+
 @Entity
-@Table(name = "elementoCosmetico")
+@Table(name = "ingrediente")
 @Component
 @Scope("prototype")
 public class Ingrediente extends ElementoCosmetico {
-	
-		
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	private CategoriaIngrediente categoriaIngrediente;
+
+	@OneToOne
+	private AtributoCosmetico categoriaIngrediente;
 	@Nullable
+	@OneToOne
 	private Producto producto;
-	
 
-	
-
-	@Override
 	public String toString() {
-		return "Ingrediente id: " + id + ", CategoriaIngrediente: " + categoriaIngrediente + ", producto: \n" + producto;
-		
+		return "Ingrediente [id=" + id + ", categoriaIngrediente=" + categoriaIngrediente + ", producto=" + producto;
 	}
 
 	public int getId() {
@@ -43,10 +36,13 @@ public class Ingrediente extends ElementoCosmetico {
 	}
 
 	public AtributoCosmetico getCategoriaIngrediente() {
-		return getCategoriaIngrediente();
+		return categoriaIngrediente;
 	}
 
-	
+	public void setCategoriaIngrediente(AtributoCosmetico categoriaIngrediente) {
+		this.categoriaIngrediente = categoriaIngrediente;
+	}
+
 	public Producto getProducto() {
 		return producto;
 	}
@@ -55,15 +51,4 @@ public class Ingrediente extends ElementoCosmetico {
 		this.producto = producto;
 	}
 
-	public CategoriaIngrediente getCategoriaIngredinte() {
-		return categoriaIngrediente;
-	}
-
-	public void setCategoriaIngredinte(CategoriaIngrediente categoriaIngredinte) {
-		this.categoriaIngrediente = categoriaIngredinte;
-	}
-
-	
-
-	
 }

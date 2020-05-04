@@ -3,23 +3,31 @@ package cosmetic.modelo.entidad;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.springframework.stereotype.Component;
 
 @Entity
 @Table(name = "elementoCosmetico")
-@Component
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class ElementoCosmetico {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	int id;
 	private String nombre;
-	private List<AtributoCosmetico> atributoCosmetico;
+	@OneToMany(targetEntity = AtributoCosmetico.class, mappedBy = "elementoCosmetico")	
+	private List<AtributoCosmetico> atributosCosmeticos;// OneToMany
 	private String comentario;
 
 	@Override
 	public String toString() {
-		return "Nnombre: " + nombre + ", atributoCosmetico: \n" + atributoCosmetico
-				+ ", comentario: " + comentario;
+		return "Nnombre: " + nombre + ", atributoCosmetico: \n" + atributosCosmeticos + ", comentario: " + comentario;
 	}
 
 	public String getNombre() {
@@ -31,11 +39,11 @@ public abstract class ElementoCosmetico {
 	}
 
 	public List<AtributoCosmetico> getAtributoCosmetico() {
-		return atributoCosmetico;
+		return atributosCosmeticos;
 	}
 
 	public void setAtributoCosmetico(List<AtributoCosmetico> atributoCosmetico) {
-		this.atributoCosmetico = atributoCosmetico;
+		this.atributosCosmeticos = atributoCosmetico;
 	}
 
 	public String getComentario() {
@@ -45,11 +53,5 @@ public abstract class ElementoCosmetico {
 	public void setComentario(String comentario) {
 		this.comentario = comentario;
 	}
-	
-	
-
-	
-
-	
 
 }
