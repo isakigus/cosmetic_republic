@@ -15,13 +15,13 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "elementoCosmetico")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public abstract class ElementoCosmetico {
+public class ElementoCosmetico {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	int id;
 	private String nombre;
-	@OneToMany(targetEntity = AtributoCosmetico.class, mappedBy = "elementoCosmetico")	
+	@OneToMany(targetEntity = AtributoCosmetico.class, mappedBy = "elementoCosmetico")
 	private List<AtributoCosmetico> atributosCosmeticos;// OneToMany
 	private String comentario;
 
