@@ -1,9 +1,10 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
+<mat-toolbar color="primary">
+  <h1>Welcome to {{title}}!</h1>
+</mat-toolbar>
 
-  here must be the searh component
+<nav>
+  <a routerLink="/search" routerLinkActive="active">Buscador</a>
+  <a routerLink="/data" routerLinkActive="active">Datos</a>
+</nav>
 
-</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,66 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <span>Instrucciones de busqueda</span>
+    </mat-panel-title>
+
+  </mat-expansion-panel-header>
+
+  <p>
+    busqueda general, se buscara tanto en ingrediente como en producto
+  </p>
+  <p>
+    operadores de busqueda, + = OR y *=AND
+  </p>
+  <p>
+    los separadores en un grupo por comas son OR siempre
+  </p>
+  <p>
+    los separadores en un grupo por & ANDs
+  </p>
+  <p>
+    busqueda ingrediente añadir prefijo ing:
+
+    <span>ejemplo:</span> ing:aceite coco,leticina
+  </p>
+  <p>
+    busqueda producto añadir prefijo prod:
+
+    <span>ejemplo:</span> prod:jabón lechuga
+  </p>
+</mat-expansion-panel>
+
+
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <span>Instrucciones de resultados</span>
+
+    </mat-panel-title>
+
+  </mat-expansion-panel-header>
+  <p>
+    ordenar por fecha de inserccion
+  </p>
+  <p>
+    ordernar alfabeticamente
+  </p>
+</mat-expansion-panel>
+
+<mat-card>
+  <div style="text-align:center">
+    <input style="text-align:center" #searchBox matInput type="text" (keyup)="onSearch(searchBox.value)"
+      placeholder="{{searchTextPlaceholder}}" />
+  </div>
+</mat-card>
+
+<mat-card *ngIf="searchBox.value">
+  <p>Estas buscando ...</p>
+  <p class="searching">{{searchValue}}</p>
+  <p [innerHTML]="searchExplanation"></p>
+</mat-card>
+
+<mat-card>
+  resultados aquí
+  <!-- <searchesResult /> -->
+</mat-card>
