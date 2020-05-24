@@ -24,8 +24,8 @@ public class AtributoCosmetico {
 	@Enumerated(EnumType.STRING)
 	private CategoriaAtributo categoriaAtributo;
 	// Referenciar al resto de enum desde negocio, podria ser con un switch,
-	//cada case seria lo devuelto por categoriaAtributo haciendo referencia
-	//a cada uno de los enum
+	// cada case seria lo devuelto por categoriaAtributo haciendo referencia
+	// a cada uno de los enum
 	@ManyToOne
 	private ElementoCosmetico elementoCosmetico;
 

@@ -11,7 +11,6 @@ import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
 @Entity
 @Table(name = "elementoCosmetico")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
