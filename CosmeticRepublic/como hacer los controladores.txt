@@ -1,0 +1,4 @@
+Hacer restcontroller para la barra de busqueda con todas las busquedas de todas las entidades y desde alli 
+mapearlas al gestor de cada entidad.
+
+Hacer daos probar desde Restcontroller
