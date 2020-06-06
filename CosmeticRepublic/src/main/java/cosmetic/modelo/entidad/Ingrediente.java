@@ -27,6 +27,10 @@ public class Ingrediente extends ElementoCosmetico {
 		return "Ingrediente [id=" + id + ", categoriaIngrediente=" + categoriaIngrediente + ", producto=" + producto;
 	}
 
+	public Ingrediente() {
+		super();
+	}
+
 	public int getId() {
 		return id;
 	}

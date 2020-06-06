@@ -31,7 +31,11 @@ public class IngredienteReceta {
 		return "IngredienteReceta [ingrediente=" + ingrediente + ", receta=" + receta + ", porcentaje=" + porcentaje
 				+ "]";
 	}
-	
+
+	public IngredienteReceta() {
+		super();
+	}
+
 	public int getId() {
 		return id;
 	}

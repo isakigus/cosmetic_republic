@@ -19,6 +19,7 @@ class LoadDatabase {
         return args -> {
             log.info("Preloading " + repository.save(new AtributoCosmetico()));
             log.info("Preloading " + repository.save(new AtributoCosmetico()));
+          
         };
     }
 }

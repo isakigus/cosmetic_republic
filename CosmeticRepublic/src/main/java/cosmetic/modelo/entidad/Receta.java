@@ -2,6 +2,7 @@ package cosmetic.modelo.entidad;
 
 import java.util.List;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,12 +27,17 @@ public class Receta {
 	private int id;
 	@ManyToOne
 	private Producto producto;
+	@ElementCollection
 	@OneToMany(targetEntity = IngredienteReceta.class, mappedBy = "receta")
 	private List<IngredienteReceta> ingredientes;
 
 	@Override
 	public String toString() {
 		return "Receta [id=" + id + ", producto=" + producto + ", ingredientes=" + ingredientes + "]";
+	}
+
+	public Receta() {
+		super();
 	}
 
 	public int getId() {
@@ -57,7 +63,5 @@ public class Receta {
 	public void setIngredientes(List<IngredienteReceta> ingredientes) {
 		this.ingredientes = ingredientes;
 	}
-
-	
 
 }

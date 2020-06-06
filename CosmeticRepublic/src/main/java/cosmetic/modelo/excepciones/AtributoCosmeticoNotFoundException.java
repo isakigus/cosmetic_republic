@@ -1,6 +1,5 @@
 package cosmetic.modelo.excepciones;
 
-import java.util.function.Supplier;
 
 public class AtributoCosmeticoNotFoundException extends RuntimeException {
 

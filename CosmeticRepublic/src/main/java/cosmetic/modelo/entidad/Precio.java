@@ -35,6 +35,10 @@ public class Precio {
 				+ fechaCompra + "]";
 	}
 
+	public Precio() {
+		super();
+	}
+
 	public int getId() {
 		return id;
 	}

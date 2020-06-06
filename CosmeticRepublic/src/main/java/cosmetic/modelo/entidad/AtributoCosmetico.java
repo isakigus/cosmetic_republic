@@ -35,6 +35,10 @@ public class AtributoCosmetico {
 				+ ", atributoCosmetico=" + elementoCosmetico + "]";
 	}
 
+	public AtributoCosmetico() {
+		super();
+	}
+
 	public int getId() {
 		return id;
 	}

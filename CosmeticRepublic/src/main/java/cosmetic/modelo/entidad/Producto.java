@@ -2,6 +2,7 @@ package cosmetic.modelo.entidad;
 
 import java.util.List;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -18,18 +19,23 @@ import cosmetic.modelo.entidad.AtributoCosmetico;
 @Scope("prototype")
 public class Producto extends ElementoCosmetico {
 
-	
 	@OneToOne
 	private AtributoCosmetico categoriaCosmetica;
+	@ElementCollection
 	@OneToMany(targetEntity = Imagen.class, mappedBy = "producto")
 	private List<Imagen> ficherosDeImagen;
+	@ElementCollection
 	@OneToMany(targetEntity = Receta.class, mappedBy = "producto")
 	private List<Receta> recetas;
 
 	@Override
 	public String toString() {
-		return "Producto [id=" + id + ", ficherosDeImagen=" + ficherosDeImagen + ", categoriaCosmetica=" + categoriaCosmetica
-				+ ", recetas=" + recetas + "]";
+		return "Producto [id=" + id + ", ficherosDeImagen=" + ficherosDeImagen + ", categoriaCosmetica="
+				+ categoriaCosmetica + ", recetas=" + recetas + "]";
+	}
+
+	public Producto() {
+		super();
 	}
 
 	public int getId() {

@@ -2,7 +2,9 @@ package cosmetic.modelo.entidad;
 
 import java.util.List;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -10,6 +12,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+
 
 @Entity
 @Table(name = "elementoCosmetico")
@@ -20,13 +24,19 @@ public class ElementoCosmetico {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	int id;
 	private String nombre;
-	@OneToMany(targetEntity = AtributoCosmetico.class, mappedBy = "elementoCosmetico")
-	private List<AtributoCosmetico> atributosCosmeticos;// OneToMany
+
+	@ElementCollection
+	@OneToMany(targetEntity = AtributoCosmetico.class, mappedBy = "elementoCosmetico", fetch = FetchType.EAGER)
+	private List<AtributoCosmetico> atributosCosmeticos;
 	private String comentario;
 
 	@Override
 	public String toString() {
 		return "Nnombre: " + nombre + ", atributoCosmetico: \n" + atributosCosmeticos + ", comentario: " + comentario;
+	}
+
+	public ElementoCosmetico() {
+		super();
 	}
 
 	public String getNombre() {

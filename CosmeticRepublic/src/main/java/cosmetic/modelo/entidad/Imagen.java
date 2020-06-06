@@ -34,6 +34,10 @@ public class Imagen {
 		return "Imagen: id: " + id + ", producto: \n " + producto + ", imagen: " + imagen;
 	}
 
+	public Imagen() {
+		super();
+	}
+
 	public int getId() {
 		return id;
 	}

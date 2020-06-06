@@ -22,27 +22,26 @@ class AtributoCosmeticoController {
         this.atributo = atributo;
     }
 
-    @GetMapping("/AtributoCosmeticos")
-    List<AtributoCosmetico> all() {
+    @GetMapping("/AtributosCosmeticos")
+    List<AtributoCosmetico> listar() {
         return atributo.findAll();
     }
 
-    @PostMapping("/AtributoCosmeticos")
-    AtributoCosmetico newAtributoCosmetico(@RequestBody AtributoCosmetico newAtributoCosmetico) {
-        return atributo.save(newAtributoCosmetico);
+    @PostMapping("/AtributosCosmetico")
+    AtributoCosmetico altaAtributoCosmetico(@RequestBody AtributoCosmetico NuevoAtributoCosmetico) {
+        return atributo.save(NuevoAtributoCosmetico);
     }
 
     // Single item
-    @GetMapping("/AtributoCosmeticos/{id}")
-    AtributoCosmetico one(@PathVariable Long id) {
+    @GetMapping("/AtributosCosmetico/{id}")
+    AtributoCosmetico obtener(@PathVariable Long id) {
 
-        // return atributo.findById(id).orElseThrow(() -> new
-        // AtributoCosmeticoNotFoundException(id));
+       
         return atributo.findById(id.intValue());
     }
 
-    @PutMapping("/AtributoCosmeticos/{id}")
-    AtributoCosmetico replaceAtributoCosmetico(@RequestBody AtributoCosmetico newAtributoCosmetico,
+    @PutMapping("/AtributosCosmetico/{id}")
+    AtributoCosmetico modificarAtributoCosmetico(@RequestBody AtributoCosmetico newAtributoCosmetico,
             @PathVariable Long id) {
 
         AtributoCosmetico atributo_obj = null;
@@ -52,14 +51,14 @@ class AtributoCosmeticoController {
         }
 
         atributo_obj.setNombre(newAtributoCosmetico.getNombre());
-        atributo_obj.setNombre(newAtributoCosmetico.getNombre());
+        // atributo_obj.setNombre(newAtributoCosmetico.getNombre());
 
         return atributo_obj;
 
     }
 
-    @DeleteMapping("/AtributoCosmeticos/{id}")
-    void deleteAtributoCosmetico(@PathVariable Long id) {
+    @DeleteMapping("/AtributoCosmetico/{id}")
+    void bollarAtributoCosmetico(@PathVariable Long id) {
         atributo.deleteById(id.intValue());
     }
 }
