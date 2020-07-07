@@ -15,11 +15,11 @@ import cosmetic.modelo.entidad.Ingrediente;
 import cosmetic.modelo.persistencia.IngredienteDao;
 
 @RestController
-public class ControladorIngrediente {
+public class IngredienteControlador {
 
 	private final IngredienteDao ingredienteDao;
 
-	public ControladorIngrediente(IngredienteDao ingredienteDao) {
+	public IngredienteControlador(IngredienteDao ingredienteDao) {
 		super();
 		this.ingredienteDao = ingredienteDao;
 	}
@@ -57,13 +57,40 @@ public class ControladorIngrediente {
 	Ingrediente buscarPorId(@PathVariable Long id) {
 		return ingredienteDao.findById(id.intValue());
 	}
+
+	@GetMapping("/Ingredientes/Nombre/{nombre}")
+	List<Ingrediente> buscarPorNombre(@PathVariable String nombre) {
+		return ingredienteDao.findByNombreContainingIgnoreCase(nombre);
+
+	}
+
 	/*
-	 * @GetMapping("/Ingredientes/{nombre}") List<Ingrediente>
-	 * buscarPorNombre(@PathVariable String nombre) { return
-	 * ingredienteDao.findByNombreContainingIgnoreCase(nombre); }
+	 * HACER CUANDO TENGA DAO DE PRODUCTO
 	 * 
-	 * @GetMapping("/Ingredientes/{producto}") List<Ingrediente>
-	 * buscarPorProducto(@PathVariable Producto producto) { return
-	 * ingredienteDao.findByProducto(producto); }
+	 * @GetMapping("/Ingredientes/Producto{id}") List<Ingrediente>
+	 * buscarPorProducto(@PathVariable int id) {
+	 * 
+	 * id = return ingredienteDao.findByProducto(producto); }
 	 */
+
+	/* no va VER TUTORIAL ENUMS hacer con metodo gestor.
+	@GetMapping("/Ingredientes/Propiedades/{categoriaAtributo}")
+	List<Ingrediente> buscarPorPropiedades(@PathVariable String propiedades) {
+
+		// CategoriaAtributo enumPropiedades = null;
+		// enumPropiedades.name();
+
+		List<Ingrediente> todosLosIngredientes = ingredienteDao.findAll();
+		List<Ingrediente> ingredientesConLaPropiedadBuscada = new ArrayList<Ingrediente>();
+		for (Ingrediente ingredienteBuscado : todosLosIngredientes) {
+			for (AtributoCosmetico atributoCosmeticoBuscado : ingredienteBuscado.getAtributoCosmetico()) {
+				if (atributoCosmeticoBuscado.getCategoriaAtributo().name().equals(propiedades))
+					ingredientesConLaPropiedadBuscada.add(ingredienteBuscado);
+			}
+
+		}
+
+		return ingredientesConLaPropiedadBuscada;
+	}
+	*/
 }

@@ -14,11 +14,11 @@ import cosmetic.modelo.persistencia.AtributoCosmeticoDao;
 import cosmetic.modelo.entidad.AtributoCosmetico;
 
 @RestController
-class AtributoCosmeticoController {
+class AtributoCosmeticoControlador {
 
     private final AtributoCosmeticoDao atributo;
 
-    AtributoCosmeticoController(AtributoCosmeticoDao atributo) {
+    AtributoCosmeticoControlador(AtributoCosmeticoDao atributo) {
         this.atributo = atributo;
     }
 
@@ -58,7 +58,7 @@ class AtributoCosmeticoController {
     }
 
     @DeleteMapping("/AtributoCosmetico/{id}")
-    void bollarAtributoCosmetico(@PathVariable Long id) {
+    void borrarAtributoCosmetico(@PathVariable Long id) {
         atributo.deleteById(id.intValue());
     }
 }

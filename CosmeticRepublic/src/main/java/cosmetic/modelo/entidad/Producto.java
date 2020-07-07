@@ -4,12 +4,14 @@ import java.util.List;
 
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+
 import cosmetic.modelo.entidad.Receta;
 import cosmetic.modelo.entidad.AtributoCosmetico;
 
@@ -25,9 +27,10 @@ public class Producto extends ElementoCosmetico {
 	@OneToMany(targetEntity = Imagen.class, mappedBy = "producto")
 	private List<Imagen> ficherosDeImagen;
 	@ElementCollection
-	@OneToMany(targetEntity = Receta.class, mappedBy = "producto")
+	@OneToMany(targetEntity = Receta.class, mappedBy = "producto", fetch = FetchType.EAGER)
 	private List<Receta> recetas;
-
+	
+	
 	@Override
 	public String toString() {
 		return "Producto [id=" + id + ", ficherosDeImagen=" + ficherosDeImagen + ", categoriaCosmetica="
