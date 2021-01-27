@@ -1,0 +1,15 @@
+Daos comprobados funciona CRUD
+
+	AtributoCosmetico Crud ok
+	Imagen
+		ver Post, crea pero pone a null tipoFichero Enum
+		ver Put, no modifica, pone a null Enum
+	Ingrediente
+		Post no permite ni crear con el id de producto ni con categoriaIngrediente, ni con atributoCosmetico ambos Enum.
+		Put 405 Method Not Allowed Request method 'PUT' not supported.
+	IngredienteReceta
+		POST no va
+		
+		Aprender a hacer test
+		
+	

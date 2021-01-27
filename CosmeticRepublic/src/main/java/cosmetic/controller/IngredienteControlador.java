@@ -1,13 +1,16 @@
 package cosmetic.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,17 +26,17 @@ public class IngredienteControlador {
 		super();
 		this.ingredienteDao = ingredienteDao;
 	}
-
+//{"comentario":"El Cartero comenta", "nombre": "Creado desde cartero"}
 	@PostMapping("/Ingrediente")
 	Ingrediente alta(@RequestBody Ingrediente nuevoIngrediente) {
 		return ingredienteDao.save(nuevoIngrediente);
 	}
 
-	@PostMapping("/Ingrediente/{id}")
-	public ResponseEntity<Ingrediente> modificar(@RequestBody Ingrediente ingredienteModificado, @PathVariable int id) {
+	@PutMapping(path = "/Ingrediente/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Ingrediente> modificarIngrediente(@RequestBody Ingrediente ingredienteModificado, @PathVariable int id) {
 
-		Ingrediente opt = ingredienteDao.findById(id);
-		if (opt != null) {
+		Optional<Ingrediente> opt = ingredienteDao.findById(id);
+		if (opt.isPresent()) {
 			ingredienteModificado.setId(id);
 			ingredienteDao.save(ingredienteModificado);
 			return new ResponseEntity<Ingrediente>(ingredienteModificado, HttpStatus.OK);
@@ -53,11 +56,18 @@ public class IngredienteControlador {
 		return ingredienteDao.findAll();
 	}
 
-	@GetMapping("/Ingredientes/{id}")
-	Ingrediente buscarPorId(@PathVariable Long id) {
-		return ingredienteDao.findById(id.intValue());
-	}
-
+	@GetMapping("/Ingrediente/{id}")
+	public ResponseEntity<Ingrediente> buscarPorId(@PathVariable int id) {
+		
+		Optional<Ingrediente>opt = ingredienteDao.findById(id);
+			if(opt.isPresent()) {
+				return new ResponseEntity<Ingrediente>(opt.get(), HttpStatus.OK);
+			}else {
+				return new ResponseEntity<Ingrediente>(opt.get(), HttpStatus.NOT_FOUND);
+			}
+		}
+	
+//localhost:8080/Ingredientes/Nombre/Prueba alta Dao
 	@GetMapping("/Ingredientes/Nombre/{nombre}")
 	List<Ingrediente> buscarPorNombre(@PathVariable String nombre) {
 		return ingredienteDao.findByNombreContainingIgnoreCase(nombre);

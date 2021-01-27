@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import cosmetic.modelo.entidad.Producto;
-
+//En esta clase interactua la entidad Ingrediente con la entidad Producto. 
 @Entity
 @Table(name = "receta")
 @Component
@@ -26,14 +26,15 @@ public class Receta {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@ManyToOne
-	private Producto producto;
+	private Producto producto;//Mapeado de Receta
 	@ElementCollection
 	@OneToMany(targetEntity = IngredienteReceta.class, mappedBy = "receta")
-	private List<IngredienteReceta> ingredientes;
-
+	private List<IngredienteReceta> ingredientes;//Listado de los ingredientes, en que porcentaje y con que precio forman parte de este receta. 
+	private double precioReceta;//La suma de los precios de los ingredientes. 
+	
 	@Override
 	public String toString() {
-		return "Receta [id=" + id + ", producto=" + producto + ", ingredientes=" + ingredientes + "]";
+		return "Receta [id=" + id + ", producto=" + producto + ", ingredientes=" + ingredientes + ", precioReceta" + "]";
 	}
 
 	public Receta() {
@@ -62,6 +63,14 @@ public class Receta {
 
 	public void setIngredientes(List<IngredienteReceta> ingredientes) {
 		this.ingredientes = ingredientes;
+	}
+
+	public double getPrecioReceta() {
+		return precioReceta;
+	}
+
+	public void setPrecioReceta(double precioReceta) {
+		this.precioReceta = precioReceta;
 	}
 
 }

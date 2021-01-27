@@ -24,10 +24,10 @@ public class Imagen {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@ManyToOne
-	private Producto producto;
-	private Blob imagen;
+	private Producto producto;//Producto al que esta asociada la imagen. 
+	private Blob imagen;//Fichero de la imagen
 	@Enumerated(EnumType.STRING)
-	private TipoFichero tipoFichero;
+	private TipoFichero tipoFichero;//Es imagen o etiqueta. 
 
 	@Override
 	public String toString() {

@@ -8,7 +8,7 @@ import cosmetic.modelo.entidad.Ingrediente;
 
 public interface IngredienteDao extends JpaRepository<Ingrediente, Integer> {
 
-	Ingrediente findById(int id);
+	//Ingrediente findById(int id);
 
 	 List<Ingrediente> findByNombreContainingIgnoreCase(String nombre);
 

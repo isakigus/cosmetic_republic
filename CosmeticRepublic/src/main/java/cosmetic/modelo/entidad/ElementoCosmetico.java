@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
-
+//De esta entidad heredan las entidades Producto e Ingrediente. 
 @Entity
 @Table(name = "elementoCosmetico")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)

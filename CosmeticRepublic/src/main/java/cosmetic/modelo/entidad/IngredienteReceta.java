@@ -4,12 +4,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-
+//En esta entidad se relacionan los ingredientes con las recetas de las que forman parte
 @Entity
 @Table(name = "ingredienteReceta")
 @Component
@@ -21,16 +22,30 @@ public class IngredienteReceta {
 	int id;
 
 	@OneToOne
-	private Ingrediente ingrediente;
+	private Ingrediente ingrediente;//id de ingrediente. 
+	@ManyToOne
+	private Receta receta;//Mapeado de Receta
+	private double porcentaje;//Porcentaje de este ingrediente en la receta en la que participa. 
 	@OneToOne
-	private Receta receta;
-	private double porcentaje;
+	private Precio precioPorGramo;//Precio por gramo precio/gramos del total comprado.
+	private double precioIngredienteReceta;//Precio por porcentaje. 
+
+	public double calculoPrecioIngredienteReceta() {
+		
+		precioIngredienteReceta=precioPorGramo.calculoPrecioPorGramo()*porcentaje;
+		return precioIngredienteReceta;
+	}
+	
+	
 
 	@Override
 	public String toString() {
-		return "IngredienteReceta [ingrediente=" + ingrediente + ", receta=" + receta + ", porcentaje=" + porcentaje
-				+ "]";
+		return "IngredienteReceta [id=" + id + ", ingrediente=" + ingrediente + ", receta=" + receta + ", porcentaje="
+				+ porcentaje + ", precioPorGramo=" + precioPorGramo + ", precioIngredienteReceta="
+				+ precioIngredienteReceta + "]";
 	}
+
+
 
 	public IngredienteReceta() {
 		super();
@@ -67,5 +82,23 @@ public class IngredienteReceta {
 	public void setPorcentaje(double porcentaje) {
 		this.porcentaje = porcentaje;
 	}
+
+	public Precio getPrecioPorGramo() {
+		return precioPorGramo;
+	}
+
+	public void setPrecioPorGramo(Precio precioPorGramo) {
+		this.precioPorGramo = precioPorGramo;
+	}
+
+	public double getPrecioIngredienteReceta() {
+		return precioIngredienteReceta;
+	}
+
+	public void setPrecioIngredienteReceta(double precioIngredienteReceta) {
+		this.precioIngredienteReceta = precioIngredienteReceta;
+	}
+	
+	
 
 }

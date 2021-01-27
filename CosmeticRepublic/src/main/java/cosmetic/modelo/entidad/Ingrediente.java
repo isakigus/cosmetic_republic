@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.Nullable;
 
 import cosmetic.modelo.entidad.Producto;
-
+//Ingredientes de los que se componen los productos. 
 @Entity
 @Table(name = "ingrediente")
 @Component
@@ -24,15 +24,15 @@ import cosmetic.modelo.entidad.Producto;
 public class Ingrediente extends ElementoCosmetico {
 
 	@OneToOne
-	private AtributoCosmetico categoriaIngrediente;
+	private AtributoCosmetico categoriaIngrediente;//Para saber que tipo de ingrediente es, aceite, mica, ae, etc..
 	@Nullable
 	@OneToOne
-	private Producto producto;
+	private Producto producto;//Un producto puede ser un ingrediente de otro produto, ejmp las sinergias.
 	
 	@JsonIgnore
 	@ElementCollection
 	@OneToMany(targetEntity = AtributoCosmetico.class, mappedBy = "elementoCosmetico")
-	private List<AtributoCosmetico> atributosCosmeticos;
+	private List<AtributoCosmetico> atributosCosmeticos;//Lista de caracteristicas de un ingrediente, humectante, espumante, aroma etc...
 
 	
 

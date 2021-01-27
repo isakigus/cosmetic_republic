@@ -22,13 +22,13 @@ import cosmetic.modelo.entidad.AtributoCosmetico;
 public class Producto extends ElementoCosmetico {
 
 	@OneToOne
-	private AtributoCosmetico categoriaCosmetica;
+	private AtributoCosmetico categoriaCosmetica;//Jabon, gel, crema etc...
 	@ElementCollection
 	@OneToMany(targetEntity = Imagen.class, mappedBy = "producto")
-	private List<Imagen> ficherosDeImagen;
-	@ElementCollection
+	private List<Imagen> ficherosDeImagen;//Fotos y etiquetas.
+	@ElementCollection												//eaguer carga las relaciones aunque no se invoquen.Con Lazy no se cargarian. 
 	@OneToMany(targetEntity = Receta.class, mappedBy = "producto", fetch = FetchType.EAGER)
-	private List<Receta> recetas;
+	private List<Receta> recetas;//Recetas
 	
 	
 	@Override

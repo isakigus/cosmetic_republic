@@ -1,7 +1,11 @@
 package cosmetic.controller;
 
 import java.util.List;
+import java.util.Optional;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,49 +20,58 @@ import cosmetic.modelo.entidad.AtributoCosmetico;
 @RestController
 class AtributoCosmeticoControlador {
 
-    private final AtributoCosmeticoDao atributo;
+	private final AtributoCosmeticoDao atributoDao;
 
-    AtributoCosmeticoControlador(AtributoCosmeticoDao atributo) {
-        this.atributo = atributo;
-    }
+	AtributoCosmeticoControlador(AtributoCosmeticoDao atributo) {
+		this.atributoDao = atributo;
+	}
 
-    @GetMapping("/AtributosCosmeticos")
-    List<AtributoCosmetico> listar() {
-        return atributo.findAll();
-    }
+	@GetMapping("/AtributosCosmeticos")
+	List<AtributoCosmetico> listar() {
+		return atributoDao.findAll();
+	}
+	
+//{"categoriaAtributo":"", "nombre":""}
+	@PostMapping("/AtributoCosmetico")
+	AtributoCosmetico altaAtributoCosmetico(@RequestBody AtributoCosmetico nuevoAtributoCosmetico) {
+		return atributoDao.save(nuevoAtributoCosmetico);
+	}
 
-    @PostMapping("/AtributosCosmetico")
-    AtributoCosmetico altaAtributoCosmetico(@RequestBody AtributoCosmetico NuevoAtributoCosmetico) {
-        return atributo.save(NuevoAtributoCosmetico);
-    }
+	// Single item
+	@GetMapping("/AtributoCosmetico/{id}")
+	public ResponseEntity<AtributoCosmetico> obtener(@PathVariable int id) {
 
-    // Single item
-    @GetMapping("/AtributosCosmetico/{id}")
-    AtributoCosmetico obtener(@PathVariable Long id) {
+		Optional<AtributoCosmetico> opt = atributoDao.findById(id);
+		if (opt.isPresent()) {
+			return new ResponseEntity<AtributoCosmetico>(opt.get(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<AtributoCosmetico>(HttpStatus.NOT_FOUND);
+		}
+	}
 
-       
-        return atributo.findById(id.intValue());
-    }
+	//{"categoriaAtributo":"", "nombre":""}
+	@PutMapping(path = "/AtributoCosmetico/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<AtributoCosmetico> modificarAtributoCosmetico(
+			@RequestBody AtributoCosmetico nuevoAtributoCosmetico, @PathVariable int id) {
 
-    @PutMapping("/AtributosCosmetico/{id}")
-    AtributoCosmetico modificarAtributoCosmetico(@RequestBody AtributoCosmetico newAtributoCosmetico,
-            @PathVariable Long id) {
+		Optional<AtributoCosmetico> opt = atributoDao.findById(id);
+		if (opt.isPresent()) {
+			nuevoAtributoCosmetico.setId(id);
+			atributoDao.save(nuevoAtributoCosmetico);
+			return new ResponseEntity<AtributoCosmetico>(nuevoAtributoCosmetico,HttpStatus.OK);
+		} else {
+			nuevoAtributoCosmetico.setId(id);
+			return new ResponseEntity<AtributoCosmetico>(nuevoAtributoCosmetico, HttpStatus.NOT_FOUND);
+		}
+		
+	}
+		
 
-        AtributoCosmetico atributo_obj = null;
-        atributo_obj = atributo.findById(id.intValue());
-        if (atributo == null) {
-            atributo_obj = new AtributoCosmetico();
-        }
+	
+	
 
-        atributo_obj.setNombre(newAtributoCosmetico.getNombre());
-        // atributo_obj.setNombre(newAtributoCosmetico.getNombre());
-
-        return atributo_obj;
-
-    }
-
-    @DeleteMapping("/AtributoCosmetico/{id}")
-    void borrarAtributoCosmetico(@PathVariable Long id) {
-        atributo.deleteById(id.intValue());
-    }
+	@DeleteMapping("/AtributoCosmetico/{id}")
+	void borrarAtributoCosmetico(@PathVariable Long id) {
+		atributoDao.deleteById(id.intValue());
+	}
 }
