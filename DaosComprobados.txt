@@ -8,8 +8,10 @@ Daos comprobados funciona CRUD
 		Post no permite ni crear con el id de producto ni con categoriaIngrediente, ni con atributoCosmetico ambos Enum.
 		Put 405 Method Not Allowed Request method 'PUT' not supported.
 	IngredienteReceta
-		POST no va
+		PUT no da error pero no modifica, la id devuelta es 0, que no hay
 		
 		Aprender a hacer test
+		
+	Precio CRUD ok
 		
 	

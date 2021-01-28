@@ -9,7 +9,7 @@ import cosmetic.modelo.entidad.IngredienteReceta;
 
 public interface IngredienteRecetaDao extends JpaRepository<IngredienteReceta, Integer>{
 
-	IngredienteReceta findById(int id);
+	//IngredienteReceta findById(int id);
 	List<IngredienteReceta>findByIngrediente(Ingrediente ingrediente);
 	
 }

@@ -11,7 +11,7 @@ public interface AtributoCosmeticoDao extends JpaRepository<AtributoCosmetico, I
 
 	List<AtributoCosmetico> findByNombreContainingIgnoreCase(String nombre);
 
-	//AtributoCosmetico findById(int id);
+	//AtributoCosmetico findById(int id); no funciona con Optional.
 
 	AtributoCosmetico findByNombre(String nombre);
 
